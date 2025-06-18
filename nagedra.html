@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yogamnaya</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            border-bottom: 1px solid #e8c5b3;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #e8a48a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .navbar-brand img {
+            height: 80px;
+        }
+
+        .nav-link {
+            color: #6a4b23 !important;
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: #fbf9f6;
+            border-radius: 10px;
+            padding: 4rem 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            font-weight: 500;
+            color: #6a4b23;
+            position: relative;
+        }
+
+        .section h2::before {
+            content: "";
+            width: 60px;
+            height: 2px;
+            background-color: #d9c3ae;
+            position: absolute;
+            top: -1.2rem;
+            left: 0;
+        }
+
+        .section p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .btn-custom {
+            background-color: #e8a48a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem;
+            border: none;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        .image-wrapper {
+            position: relative;
+        }
+
+        .image-main {
+            width: 100%;
+            border-radius: 2rem 0 2rem 0;
+        }
+
+        .image-secondary {
+            position: absolute;
+            bottom: -55px;
+            left: -70px;
+            width: 211px;
+            height: 311px;
+            border-radius: 0 0 77px 0;
+            box-shadow: 0 4px 10px rgba(239, 236, 236, 0.1);
+        }
+
+        .section-title {
+            color: #e78d74;
+            font-weight: bold;
+        }
+
+
+
+        @media (max-width: 767px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .text-section {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-transparent py-3">
+        <div class="container d-flex flex-column align-items-center">
+            <a class="navbar-brand" href="#">
+                <img src="images/ylogo.jpg" alt="Logo OSO">
+            </a>
+            <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center mt-2" id="navbarContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Reach us</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="section container shadow-sm">
+        <div class="row align-items-center g-5">
+            <div class="col-md-6">
+                <h2>Nagendra Hegde</h2>
+                <div class="col-md-9 text-section">
+                    <h4 class="section-title">Education & Training</h4>
+                    <div>
+                        Nagendra Hegde has undergone rigorous training in the profound disciplines of Yoga, Vedanta,
+                        and the Vedas through the traditional Gurukula system, spending seven years at the renowned
+                        Veda Vijnana Gurukulam. As an Acharya (teacher), he not only mastered these ancient teachings
+                        but also had the privilege of teaching within the same esteemed institution.
+                    </div>
+                    <div>
+                        Complementing his traditional education, he holds a Bachelor’s degree in Yoga and Consciousness
+                        and a Master’s degree (Vidwat) in Sanskrit, reflecting both scholarly depth and a strong
+                        academic
+                        foundation in Indian philosophy and spiritual sciences.
+                    </div>
+                </div>
+                <div class="col-md-9 text-section">
+                    <h4 class="section-title">Teaching Experience</h4>
+                    <div>
+                        Nagendra’s passion for teaching has extended well beyond the Gurukulam. He has
+                        shared his knowledge of Yoga and Sanskrit at esteemed institutions across India
+                        and abroad, including Vizag, Chaitanya School in Bangalore, and the
+                        internationally recognized Om Yoga and Wellness Hub in Vietnam.
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="image-wrapper">
+                    <img src="images/n1acharya.jpeg" alt="Yoga Image" class="image-main">
+                    <img src="images/n2acharya.jpeg" alt="Room Interior" class="image-secondary">
+                </div>
+            </div>
+            <!-- section 2 -->
+            <div class="col-md-6">
+                <div class="image-wrapper">
+                    <img src="images/n1acharya.jpeg" alt="Yoga Image" class="image-main">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-md-9 text-section">
+                    <h4 class="section-title">Workshops & Programs</h4>
+                    <div>
+                        Nagendra Hegde has led numerous workshops with a focus on personality
+                        development and yoga-based stress management. His teachings integrate
+                        physical, mental, and spiritual well-being, offering a truly holistic
+                        and transformative experience for his students.
+                    </div>
+                </div>
+                <div class="col-md-9 text-section">
+                    <h4 class="section-title">Awards & Recognition</h4>
+                    <div>
+                        His commitment to the study of Indian Logic (Tarka Shastra) earned him
+                        the prestigious Manorama Award. Additionally, his eloquence in Sanskrit
+                        was honored at the state level, where he secured second place in the
+                        esteemed Shalaka Pareeksha Sanskrit speech competition.
+                    </div>
+                </div>
+                <div class="col-md-9 text-section">
+                    <h4 class="section-title">Yoga Training & Philosophy</h4>
+                    <div>
+                        Nagendra Hegde trains students in Hatha Yoga, Ashtanga Vinyasa, and Vinyasa
+                        Yoga, incorporating Kriyas, Pranayama, and other essential yogic practices
+                        into both 200-hour and 300-hour teacher training courses. His unique approach
+                        blends traditional wisdom with modern methodologies, creating a deeply
+                        enriching and authentic experience for all on the path of Yoga and Vedanta.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
