@@ -38,18 +38,52 @@
         .nav-link:hover {
             text-decoration: underline;
         }
-   .carousel-inner img {
-      height: 400px;
-      object-fit: cover;
+/*         comments  */
+.comment-section {
+      background-color: #ffe5b4;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
     }
+
     .comment-box {
-      background: #f9f9f9;
-      border-radius: 8px;
+      background-color: #fff3e0;
+      border-left: 5px solid #ffa726;
       padding: 1rem;
+      border-radius: 8px;
       margin-bottom: 1rem;
+      position: relative;
     }
 
+    .btn-orange {
+      background-color: #ff9800;
+      color: white;
+    }
 
+    .btn-orange:hover {
+      background-color: #fb8c00;
+    }
+
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background: transparent;
+      color: #d9534f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .timestamp {
+      font-size: 0.85rem;
+      color: #9e6a00;
+    }
+
+    .no-comments {
+      color: #a86b00;
+      font-style: italic;
+    }  
         @media (max-width: 767.98px) {
             .navbar-nav {
                 text-align: center;
@@ -82,76 +116,111 @@
             </div>
         </div>
     </nav>
-<!-- blog section -->
+<!-- comment section -->
+    <div class="container my-5">
+  <div class="comment-section">
 
-<div class="container">
-
-    <!-- Image Scroller Section -->
-    <div id="blogCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://via.placeholder.com/1200x400?text=Image+1" class="d-block w-100" alt="Image 1" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/1200x400?text=Image+2" class="d-block w-100" alt="Image 2" />
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/1200x400?text=Image+3" class="d-block w-100" alt="Image 3" />
-        </div>
+    <h3 class="mb-4">Leave a Comment</h3>
+    <form id="commentForm">
+      <div class="mb-3">
+        <label for="userName" class="form-label">Name</label>
+        <input type="text" id="userName" class="form-control" required>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#blogCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+      <div class="mb-3">
+        <label for="userComment" class="form-label">Comment</label>
+        <textarea id="userComment" rows="3" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-orange">Post Comment</button>
+    </form>
+
+    <hr class="my-4">
+
+    <h4 class="mb-3">Comments</h4>
+    <div id="commentsContainer">
+      <p class="no-comments">No comments yet. Be the first to comment!</p>
     </div>
 
-    <!-- Article Section -->
-    <article class="mb-5">
-      <h2>Blog Post Title</h2>
-      <p class="text-muted">Posted on June 20, 2025 by Admin</p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt finibus, nunc est
-        vehicula lacus, at scelerisque lorem velit non urna. Duis vel dictum nisi. Sed fringilla lorem a mauris mattis
-        tincidunt.
-      </p>
-      <p>
-        Vivamus ac luctus erat, at volutpat elit. Nulla facilisi. Praesent sodales justo vitae ante feugiat, sed
-        imperdiet lacus vestibulum. Cras sit amet risus id velit convallis efficitur at ut lorem.
-      </p>
-    </article>
-
-    <!-- Comments Section -->
-    <section>
-      <h3>Comments</h3>
-
-      <div class="comment-box">
-        <strong>Jane Doe</strong>
-        <p>Great post! I learned a lot.</p>
-      </div>
-
-      <div class="comment-box">
-        <strong>John Smith</strong>
-        <p>Thanks for sharing this. Very insightful!</p>
-      </div>
-
-      <!-- Add Comment Form -->
-      <h4 class="mt-4">Leave a Comment</h4>
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" id="name" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="comment" class="form-label">Comment</label>
-          <textarea id="comment" rows="4" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Post Comment</button>
-      </form>
-    </section>
-
   </div>
+</div>
+<script>
+  const form = document.getElementById("commentForm");
+  const commentsContainer = document.getElementById("commentsContainer");
+
+  // Load comments from localStorage on page load
+  window.onload = () => {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    if (comments.length > 0) {
+      comments.forEach(displayComment);
+    }
+  };
+
+  // Format timestamp
+  function getTimestamp() {
+    const now = new Date();
+    return now.toLocaleString();
+  }
+
+  // Display a single comment
+  function displayComment({ name, text, timestamp }) {
+    const commentBox = document.createElement("div");
+    commentBox.classList.add("comment-box");
+
+    commentBox.innerHTML = `
+      <strong>${name}</strong>
+      <p>${text}</p>
+      <div class="timestamp">${timestamp}</div>
+      <button class="delete-btn" title="Delete">&times;</button>
+    `;
+
+    // Delete functionality
+    commentBox.querySelector(".delete-btn").addEventListener("click", () => {
+      commentBox.remove();
+      removeComment({ name, text, timestamp });
+    });
+
+    // Remove placeholder if present
+    const noComments = commentsContainer.querySelector(".no-comments");
+    if (noComments) noComments.remove();
+
+    commentsContainer.prepend(commentBox);
+  }
+
+  // Save to localStorage
+  function saveComment(comment) {
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.push(comment);
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }
+
+  // Remove from localStorage
+  function removeComment(targetComment) {
+    let comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments = comments.filter(
+      c => !(c.name === targetComment.name && c.text === targetComment.text && c.timestamp === targetComment.timestamp)
+    );
+    localStorage.setItem("comments", JSON.stringify(comments));
+
+    if (comments.length === 0) {
+      commentsContainer.innerHTML = `<p class="no-comments">No comments yet. Be the first to comment!</p>`;
+    }
+  }
+
+  // Form submission handler
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("userName").value.trim();
+    const text = document.getElementById("userComment").value.trim();
+    const timestamp = getTimestamp();
+
+    if (!name || !text) return;
+
+    const newComment = { name, text, timestamp };
+    displayComment(newComment);
+    saveComment(newComment);
+    form.reset();
+  });
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
