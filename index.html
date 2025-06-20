@@ -391,6 +391,18 @@
       background-color: rgba(255, 165, 0, 0.7);
       border-radius: 50%;
     }
+/*     blog */
+     .blog-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
     @media (max-width: 767.98px) {
       .navbar-nav {
         text-align: center;
@@ -496,6 +508,50 @@
         our minds, deepen our understanding, and bring clarity and purpose to modern life.
       </p>
       <a href="contact.html" class="btn btn-outline-dark mt-4">Contact Us</a>
+    </div>
+  </section>
+<!--   blog -->
+   <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Latest Blog Posts</h2>
+      <div class="row g-4">
+        <!-- Blog Post 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card h-100">
+            <img src="https://source.unsplash.com/400x200/?technology" class="card-img-top" alt="Tech">
+            <div class="card-body">
+              <h5 class="card-title">Tech Trends 2025</h5>
+              <p class="card-text">Explore upcoming trends that are shaping the future of technology and innovation.</p>
+              <a href="#" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card h-100">
+            <img src="https://source.unsplash.com/400x200/?nature" class="card-img-top" alt="Nature">
+            <div class="card-body">
+              <h5 class="card-title">The Beauty of Nature</h5>
+              <p class="card-text">Discover the wonders of the natural world and how we can protect it.</p>
+              <a href="#" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card h-100">
+            <img src="https://source.unsplash.com/400x200/?travel" class="card-img-top" alt="Travel">
+            <div class="card-body">
+              <h5 class="card-title">Travel Essentials</h5>
+              <p class="card-text">Tips and tricks to make your next adventure smooth and unforgettable.</p>
+              <a href="#" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </section>
 
