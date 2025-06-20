@@ -84,10 +84,41 @@
       color: #a86b00;
       font-style: italic;
     }  
+         .article-section {
+      background-color: #ffe5b4;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
+    }
+
+    .article-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #d2691e;
+    }
+
+    .article-content {
+      font-size: 1.1rem;
+      color: #5c3b00;
+    }
+
+    .article-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+      object-fit: cover;
+      height: 100%;
+    }
+
+        
         @media (max-width: 767.98px) {
             .navbar-nav {
                 text-align: center;
             }
+              .article-title {
+        font-size: 1.5rem;
+      }
 
 
 
@@ -116,6 +147,31 @@
             </div>
         </div>
     </nav>
+<!--     Article Section -->
+    <div class="container">
+  <div class="article-section row align-items-center">
+    
+    <!-- Text Section -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <h2 class="article-title">Discover the Beauty of Autumn</h2>
+      <p class="article-content">
+        Autumn is more than just a season — it's a vibrant tapestry of colors, crisp air, and cozy vibes.
+        With golden leaves crunching underfoot and the scent of pumpkin spice lingering in the breeze,
+        it's the perfect time to slow down and appreciate nature’s transition.
+      </p>
+      <p class="article-content">
+        Whether you're hiking through forests ablaze with orange hues or sipping cider by the fire,
+        fall invites you to pause and enjoy the present. Embrace the change — it's beautiful.
+      </p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="col-md-6">
+      <img src="https://via.placeholder.com/600x400/ffa726/fff?text=Autumn+Scene" alt="Autumn Image" class="article-img">
+    </div>
+
+  </div>
+</div>
 <!-- comment section -->
     <div class="container my-5">
   <div class="comment-section">
