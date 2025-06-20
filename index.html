@@ -407,6 +407,34 @@
       object-fit: cover;
 /*       object-fit: scale-down; */
     }
+    .register-section {
+      background: linear-gradient(to right, #ffe0b2, #ffcc80);
+      padding: 60px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(255, 165, 0, 0.2);
+    }
+
+    .register-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #bf360c;
+    }
+
+    .register-btn {
+      background-color: #ff9800;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+
+    .register-btn:hover {
+      background-color: #fb8c00;
+    }
+
+    .form-control:focus {
+      border-color: #ffa726;
+      box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.25);
+    }
     @media (max-width: 767.98px) {
       .navbar-nav {
         text-align: center;
@@ -499,6 +527,31 @@
     </button>
   </div>
 </div>
+<!-- Book Now -->
+  <div class="container my-5">
+  <div class="register-section text-center">
+    <h2 class="register-title mb-4">Join Us Today!</h2>
+    <p class="mb-4 text-dark">Sign up now to stay updated with our latest news and offers.</p>
+    <form id="registerForm" class="row g-3 justify-content-center">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="col-md-4">
+        <input type="email" class="form-control" placeholder="Your Email" required>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn register-btn px-5 py-2 mt-2">Register Now</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <script>
+  document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Thank you for registering!");
+    this.reset();
+  });
+</script>
   <!-- about -->
 
   <section class="about-section">
